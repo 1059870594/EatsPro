@@ -78,10 +78,20 @@ WSGI_APPLICATION = 'eatsPro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'mssql',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'HOST': #SQL Server instance in "server\instance" format,
+        'PORT': '',
+        'USER': #Database user name in "user" format. If not given then MS Integrated Security will be used,
+        'PASSWORD': #Database user password,
+        
+        'OPTIONS': {
+                'driver': 'ODBC Driver 17 for SQL Server',
+            },
     }
 }
+
+DATABASE_CONNECTION_POOLING = False
 
 
 # Password validation
